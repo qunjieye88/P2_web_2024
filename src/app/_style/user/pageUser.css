@@ -1,0 +1,31 @@
+.user{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.container-Sidebar{
+    width: 15%;
+    height: 100%;
+    transition: width 0.6s ease;
+}
+
+
+.container-Sidebar.minimized {
+    width: 60px;
+    transition: width 0.6s ease;
+}
+.container-children{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(231, 231, 231);
+    transition: width 0.6s ease;
+}
+.container-children.minimized {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(220, 220, 220);
+    transition: width 0.6s ease;
+}

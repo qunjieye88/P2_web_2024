@@ -1,0 +1,19 @@
+.project{
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.project_filter{
+    height: 100%;
+}
+
+.project header{
+    height:calc(10% - 10px);
+    margin-bottom: 10px;
+}
+
+.project main{
+    height: 90%;
+}

@@ -1,0 +1,79 @@
+.UpdateTable {
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+
+}
+
+.title-updatetable {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.container-input-updatetable-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70%;
+
+}
+
+.container-input-updatetable {
+    height: auto;
+    gap: 50px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: row;
+}
+
+.input-updatetable {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.input-updatetable label {
+    text-align: center;
+    width: 100%;
+    border: 1px;
+    color: black;
+}
+
+.input-updatetable input {
+    width: auto;
+}
+
+.title-updatetable {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+.ButtonContainer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: -5px;
+}

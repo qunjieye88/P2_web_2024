@@ -1,0 +1,46 @@
+.filter {
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap:10px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.filter_select-container{
+    height: 100%;
+}
+
+.filter_select-container select{
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    height: 100%;
+}
+.filter_input-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+
+
+.filter input {
+    width: 100%; 
+    height: 50%;
+    box-sizing: border-box; 
+    font-size: 1em;
+}
+
+.filter p{
+    height: 50%;
+    font-size: 0.9em;
+    color: #666;
+    width: 100%;
+}
