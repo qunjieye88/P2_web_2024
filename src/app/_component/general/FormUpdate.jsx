@@ -35,7 +35,6 @@ export default function FormUpdate({ path, keys, dataUpdate, functions, message,
         const json = createJson(data, keys);
         const result = await fetchUtil(`${path}/${dataUpdate._id}`, "PUT", json);
         if (result instanceof Error) {
-            console.log("error")
             if (result.message.includes("422")) {
                 setError("Datos incorrectos");
             }else if(result.message.includes("409")){

@@ -4,8 +4,6 @@ import { useRouter } from "next/navigation";
 import FormFetch from "@/app/_component/general/FormFetch"
 
 export default function PageDeliveryNote({ children }) {
-    const clientPath = "https://bildy-rpmaya.koyeb.app/api/client";
-    const pathProject = "https://bildy-rpmaya.koyeb.app/api/project";
     const deliverynote = "https://bildy-rpmaya.koyeb.app/api/deliverynote";
     const [project, setProject] = useState(null);
     const [client, setClient] = useState(null);

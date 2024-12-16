@@ -70,7 +70,12 @@ export default function Formulario({ keys, path, method, headers }) {
             <h1>Inicia Sesión</h1>{
                 keys.map((row) => (
                     <div key={row} className="input_container">
-                        {row !== "street" ? (
+                        {row === "password" ? (
+                            <>
+                                <input {...register(row)} type="password" placeholder={`Ingresa tu ${row}`} />
+                                {errors[row] && <p className="error-message">{errors[row].message}</p>}
+                            </>
+                        ) : row !== "street" ? (
                             <>
                                 <input {...register(row)} placeholder={`Ingresa tu ${row}`} />
                                 {errors[row] && <p className="error-message">{errors[row].message}</p>}
@@ -85,7 +90,7 @@ export default function Formulario({ keys, path, method, headers }) {
                 ))
             }
             <div className="buttonContainer">
-            <RedirectButton path={"/register"}>crear cuenta</RedirectButton>
+            <RedirectButton path={"/register"}>Crear cuenta</RedirectButton>
                 <button type="submit" >Aceptar</button>
             </div>
             {error && <p className="error-message">{error}</p>}

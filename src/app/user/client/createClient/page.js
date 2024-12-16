@@ -3,9 +3,9 @@
 import { useState, useEffect,useContext } from 'react';
 import FormFetch from "@/app/_component/general/FormFetch"
 import { useRouter } from "next/navigation";
+import NoData from '@/app/_component/general/NoData';
 import "@/app/_style/user/client/createClient/pageCreateClient.css"
 
-import { ClientContext } from '../layout';
 import { UpdateContext } from '../layout';
 
 export default function PageCreateClient() {
@@ -33,7 +33,8 @@ export default function PageCreateClient() {
                 </div>
             </main>
             <aside>
-                <div className='createClient_formFetch'>
+                <div className='createClient_data'>
+                        <NoData>NO DATA</NoData>
                 </div>
             </aside>
         </div>

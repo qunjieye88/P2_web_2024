@@ -1,6 +1,5 @@
 'use client'
 import { useState, useEffect } from 'react';
-import { fetchUtil } from '@/app/_utils/fetch';
 import { useRouter } from "next/navigation";
 import FormFetch from "@/app/_component/general/FormFetch"
 import CardInfo from '@/app/_component/general/CardInfo';

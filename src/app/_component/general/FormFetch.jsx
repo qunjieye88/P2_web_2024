@@ -53,14 +53,9 @@ export default function Formulario({ path, keys, method, functions, message, cli
     async function functionFetch(data, keys) {
 
         if (keys[0] === "image") {
-            console.log("---")
-            console.log(data.image[0])
             const formData = new FormData();
-
             formData.append("image", data.image[0])
-
             const result = await fetchUtil(path, method, formData)
-            console.log(result)
 
             if (result instanceof Error) {
                 setError("Error al enviar");
@@ -108,7 +103,12 @@ export default function Formulario({ path, keys, method, functions, message, cli
             {
                 keys.map((row, index) => (
                     <div key={index} className="input_container">
-                        {row === "image" ? (
+                        {row === "password" ? (
+                            <>
+                                <input {...register(row)} type="password" placeholder={`Ingresa tu ${row}`} />
+                                {errors[row] && <p className="error-message">{errors[row].message}</p>}
+                            </>
+                        ) :row === "image" ? (
                             <>
                                 <input {...register(row)}  onChange={handleImageChange}  type="file" accept="image/*" />
                                 {errors[row] && <p className="error-message">{errors[row].message}</p>}

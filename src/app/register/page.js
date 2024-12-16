@@ -19,7 +19,7 @@ export default function pageRegister() {
       keys={["email", "password"]}
       method={"POST"}
       functions={()=>{}}
-      message={"REGISTER"}>
+      message={"Registrar"}>
         <button type="button" onClick={()=>{router.push("/")}}>Ya tengo cuenta</button>
         <button >Registrar</button>
     </FormFetch>
