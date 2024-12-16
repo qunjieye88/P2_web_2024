@@ -4,12 +4,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from "yup";
 import { useEffect } from 'react';
-import { updateData, createJson } from "@/app/_utils/fetch";
+import { updateData, createJson,fetchUtil } from "@/app/_utils/fetch";
 import "../../_style/general/Form.css"
+import { useState } from 'react';
 
 export default function FormUpdate({ path, keys, dataUpdate, functions, message, children}) {
-    console.log(dataUpdate)
-    console.log(keys)
+    
+    const [error, setError] = useState("");
     const SignSquema = Yup.object(
         keys.reduce((schema, field) => {
             if (field === "email") {
@@ -32,14 +33,25 @@ export default function FormUpdate({ path, keys, dataUpdate, functions, message,
 
     const onSubmit = async (data) => {
         const json = createJson(data, keys);
-        const token = localStorage.getItem("token");
-        const actualizado = await updateData(`${path}/${dataUpdate._id}`, token, json);
-        if (actualizado) {
-            if (functions) {
-                functions()
+        const result = await fetchUtil(`${path}/${dataUpdate._id}`, "PUT", json);
+        if (result instanceof Error) {
+            console.log("error")
+            if (result.message.includes("422")) {
+                setError("Datos incorrectos");
+            }else if(result.message.includes("409")){
+                setError("Ya existe cuenta");
             }
-            reset();
+        }else {
+            functions && functions()  
+            setError("");
         }
+        if(result["token"]){
+            localStorage.setItem("token",result["token"]);
+            router.push("/register/entercodeverification");
+        }else if(result["acknowledged"]){
+            router.push("/");
+        }
+        
     };
 
     useEffect(() => {
@@ -86,6 +98,8 @@ export default function FormUpdate({ path, keys, dataUpdate, functions, message,
             <div className="buttonContainer">
                 {children}
             </div>
+            
+            {error && <p className="error-message">{error}</p>}
 
         </form>
     );

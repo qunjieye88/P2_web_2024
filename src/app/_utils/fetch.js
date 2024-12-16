@@ -16,49 +16,43 @@ export function GetData(path, token, json) {
 }
 
 
-export function createData(path, token, json) {
-    const dato = fetch(path, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(json),
-    }).then(respuesta => respuesta.json())
-        .then(dato => {
-            if (dato["errors"]) {
-                return false
-            } else {
-                return true
-            }
-        }
-        )
-    return dato
-}
+export function fetchUtil(path, method, body) {
+    const headers = {};
 
-export function fetchUtil(path, method, json) {
-    const dato = fetch(path, {
+    if (path.includes("pdf")) {
+        headers["Content-Type"] = "application/pdf";
+    }
+    if (!(body instanceof FormData)) {
+        headers["Content-Type"] = "application/json";
+        body = JSON.stringify(body);
+    }
+
+    const result = fetch(path, {
         method: method,
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem("token")}`
+            ...headers,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify(json),
-    }).then((respuesta) => {
-        if (respuesta.ok) {
-            return respuesta.json();
-        } else {
-            throw new Error(`Error ${respuesta.status}: ${respuesta.statusText}`);
-        }
-    }).then((dato) => {
-        return dato
-    }).catch((error) => {
+        body: body,
+    })
+        .then((respuesta) => {
+            if (path.includes("pdf")) {
+                return respuesta
+            }
+            if (respuesta.ok) {
+                return respuesta.json();
+            } else {
+                throw new Error(`Error ${respuesta.status}: ${respuesta.statusText}`);
+            }
+        })
+        .then((dato) => {
+            return dato;
+        })
+        .catch((error) => {
             return error;
-    });
-    return dato
+        });
+    return result;
 }
-
-
 
 export function deleteData(path, token) {
     const dato = fetch(path, {
@@ -105,7 +99,6 @@ export function updateData(path, token, json) {
 export function createJson(data, keys) {
     const json = {};
     keys.forEach((field) => {
-        console.log(field)
         if (field === "street") {
             json["address"] = {}
             json["address"][field] = data[field];

@@ -3,6 +3,7 @@
 import { GetData } from "@/app/_utils/fetch";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import NoData from "../_component/general/NoData";
 export default function pageUsuario() {
 
   const [user, setUser] = useState(null)
@@ -15,17 +16,7 @@ export default function pageUsuario() {
     setUser(user)
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      router.push("/");
-    }
-    fetchData();
-  }, []);
-
-
-
   return (
-    <></>
+    <NoData>NO HAY DATOS USUARIO</NoData>
   );
 }

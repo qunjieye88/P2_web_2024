@@ -15,9 +15,6 @@ export default function PageProject() {
   const [deliveryNotesFiltered, setDeliveryNotesDiltered] = useState([]);
   const [deliveryNote, setDeliveryNote] = useState(null);
 
-  const [downloadPdfState, setDownloadPdfState] = useState(false);
-  const [pdf, setPdr] = useState("");
-
   const sincroniceProject = async () => {
     const result = await fetchUtil(pathDeliveryNote, "GET");
     setDeliveryNotes(result);
@@ -27,9 +24,6 @@ export default function PageProject() {
     sincroniceProject();
   }, []);
 
-
-  const downloadPdf = deliveryNote && <DownloadPdf path = {`${pathDeliveryNote}/pdf/${deliveryNote._id}`}></DownloadPdf>
-  const overlay = (deliveryNote) && <OverlayContent><div>{downloadPdf}</div></OverlayContent>
 
   return (
     <div className='deliveryNote'>
@@ -48,7 +42,12 @@ export default function PageProject() {
           setData={setDeliveryNote}
         />
       </main>
-      {overlay}
+      {(deliveryNote) && <OverlayContent><div className='deliveryNote_over'>
+        {deliveryNote && <DownloadPdf path={`${pathDeliveryNote}/pdf/${deliveryNote._id}`}></DownloadPdf>}
+        <button onClick={() => { setDeliveryNote(null) }}>
+          Cancelar
+        </button>
+      </div></OverlayContent>}
     </div>
   )
 }

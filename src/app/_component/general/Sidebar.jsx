@@ -20,10 +20,10 @@ export default function Sidebar({isMinimized,setIsMinimized}) {
         <button className="toggle-btn" onClick={toggleSidebar}>
           {isMinimized ? "☰" : "←"}
         </button>
-        <RedirectButton path="/user">Menú</RedirectButton>
-        <RedirectButton path="/user/client">Cliente</RedirectButton>
-        <RedirectButton path="/user/project">Proyecto</RedirectButton>
-        <RedirectButton path="/user/deliveryNote">Albarán</RedirectButton>
+        <RedirectButton path="/user" functions={()=>{localStorage.setItem("lastPath","/user")}}>Menú</RedirectButton>
+        <RedirectButton path="/user/client" functions={()=>{localStorage.setItem("lastPath","/user/client")}}>Cliente</RedirectButton>
+        <RedirectButton path="/user/project" functions={()=>{localStorage.setItem("lastPath","/user/project")}}>Proyecto</RedirectButton>
+        <RedirectButton path="/user/deliveryNote" functions={()=>{localStorage.setItem("lastPath","/user/deliveryNote")}}>Albarán</RedirectButton>
         <RedirectButton path="/" functions={logOut}>LOG OUT</RedirectButton>
       </div>
     );

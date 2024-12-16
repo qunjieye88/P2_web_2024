@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
-import FormFetch from "@/app/_component/login/FormLogin";
+import FormLogin from "@/app/_component/login/FormLogin";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -15,7 +15,8 @@ export default function Home() {
   }, []);
    
   return (
-      <FormFetch headers={{ 'Content-Type': 'application/json' }} keys={["email", "password"]}  method={"POST"} path={"https://bildy-rpmaya.koyeb.app/api/user/login"}></FormFetch>
-
+    <div className="pageLoginh">
+      <FormLogin headers={{ 'Content-Type': 'application/json' }} keys={["email", "password"]}  method={"POST"} path={"https://bildy-rpmaya.koyeb.app/api/user/login"}></FormLogin>
+    </div>
   );
 }

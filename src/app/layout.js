@@ -1,4 +1,3 @@
-import localFont from "next/font/local";
 import "./globals.css";
 import "@/app/_style/login/pageLogin.css"
 
@@ -11,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {children}
+          {children}
       </body>
     </html>
   );

@@ -1,0 +1,25 @@
+.createClient {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.createClient main {
+
+    
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+}
+
+.createClient main .createClient_formFetch{
+    width: 100%;
+    height: auto;
+}
+
+.createClient aside {
+    
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}

@@ -2,8 +2,12 @@
 import React from 'react';
 import "@/app/_style/general/DataTable.css"
 import NoData from './NoData';
-export default function DataTable({ info, columns, setData }) {
+export default function DataTable({ info, columns, setData, addFunction}) {
 
+    const onclick = (data)=>{
+        setData && setData(data)
+        addFunction && addFunction() 
+    }
 
     return (
         <>
@@ -19,7 +23,7 @@ export default function DataTable({ info, columns, setData }) {
                         </thead>
                         <tbody>
                             {info.map((row, index) => (
-                                <tr key={index} onClick={setData ? (()=>setData(row)) : (()=>{})} >
+                                <tr key={index} onClick={()=>onclick(row)} >
                                     {columns.map((column, colIndex) => {
                                         if(column === "projectId"){
                                             return <td key={colIndex}>{row[column]["_id"]}</td>

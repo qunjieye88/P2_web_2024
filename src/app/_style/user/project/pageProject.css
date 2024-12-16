@@ -1,9 +1,9 @@
 .project{
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 20px;
 }
 .project_filter{
     height: 100%;
@@ -17,3 +17,4 @@
 .project main{
     height: 90%;
 }
+

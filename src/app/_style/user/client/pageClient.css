@@ -1,55 +1,19 @@
-.client {
-    box-sizing: border-box; 
-    width: calc(100% - 30px);
-    height:  calc(100% - 30px);
-    display: flex;
-    align-items: center;
-    margin: 15px;
-    gap: 10px;
-}
 
-.client_sidebar-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 25%;
-}
-
-.client_sidebar-container .slider_filter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(10% - 10px);
-    margin-bottom:10px ;
-}
-
-.client_sidebar-container button {
-    height: 5%;
-}
-
-.client_sidebar-container .slider-clients {
-    height: calc(85% - 10px);
-    margin-top:10px ;
-    width: 100%;
-}
-
-.container-client {
-    display: flex;
-    flex-direction: column;
+.pageClient{
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     gap:10px
+
 }
 
-.container-upload {
+.pageClient_cardInfo{
     width: 100%;
     height: 60%;
 }
 
-
-.container-project {
+.pageClient_dataTable{
     width: 100%;
     height: 40%;
-    display: flex;
-    box-sizing: border-box;
 }

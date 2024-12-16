@@ -7,7 +7,6 @@ export default function Filter({ data, setLeakedData, keys }) {
     const [message, setMessage] = useState("Filtrar Datos");
     const [inputValue, setInputValue] = useState("");
     const [filter, setFilter] = useState("name");
-    console.log(data)
 
     const handleChange = (info) => {
         const searchValue = info.target.value.toLowerCase();

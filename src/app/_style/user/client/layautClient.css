@@ -1,0 +1,43 @@
+.client {
+    box-sizing: border-box; 
+    width: calc(100% - 40px);
+    height:  calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    gap: 15px;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 25%;
+}
+
+aside .client_filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(10% - 10px);
+    margin-bottom:10px ;
+}
+
+aside button {
+    height: 5%;
+}
+
+aside .client_sliderClients {
+    height: calc(85% - 10px);
+    margin-top:10px ;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap:10px;
+}
+

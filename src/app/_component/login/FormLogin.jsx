@@ -85,8 +85,8 @@ export default function Formulario({ keys, path, method, headers }) {
                 ))
             }
             <div className="buttonContainer">
+            <RedirectButton path={"/register"}>crear cuenta</RedirectButton>
                 <button type="submit" >Aceptar</button>
-                <RedirectButton path={"/register"}>crear cuenta</RedirectButton>
             </div>
             {error && <p className="error-message">{error}</p>}
         </form>
