@@ -20,7 +20,7 @@ export default function Formulario({ path, keys, method, functions, message, cli
                 row[field] = Yup.string().email("Email inválido").required("El email es obligatorio");
             } else if (field === "password") {
                 row[field] = Yup.string()
-                    .min(4, "Mínimo 8 caracteres")
+                    .min(8, "Mínimo 8 caracteres")
                     .required("La contraseña es obligatoria");
             } else if (field === "image") {
                 row[field] = Yup.mixed().required("La imagen es obligatoria");

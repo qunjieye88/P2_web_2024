@@ -17,8 +17,7 @@ export default function FormUpdate({ path, keys, dataUpdate, functions, message,
                 schema[field] = Yup.string().email("Email inválido").required("El email es obligatorio");
             } else if (field === "password") {
                 schema[field] = Yup.string()
-                    .min(4, "Mínimo 4 caracteres")
-                    .max(10, "Máximo 10 caracteres")
+                    .min(8, "Mínimo 8 caracteres")
                     .required("La contraseña es obligatoria");
             } else {
                 schema[field] = Yup.string().required(`El campo ${field} es obligatorio`);
